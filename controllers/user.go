@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	beego "github.com/beego/beego/v2/server/web"
 	"home-service/models/user"
+	"log"
 	"strconv"
 )
 
@@ -20,8 +21,8 @@ func (c *UserController) Get() {
 	c.ServeJSON()
 }
 
-// Post 用户注册
-func (c *UserController) Post() {
+// Put 用户修改信息
+func (c *UserController) Put() {
 	body := c.Ctx.Input.RequestBody
 	temp := user.User{}
 	json.Unmarshal(body, &temp)
@@ -29,11 +30,13 @@ func (c *UserController) Post() {
 	c.ServeJSON()
 }
 
-// Put 用户修改信息
-func (c *UserController) Put() {
+func (c *UserController) Login() {
 	body := c.Ctx.Input.RequestBody
 	temp := user.User{}
 	json.Unmarshal(body, &temp)
-	user.Set(temp)
+	log.Println(temp)
+	c.Data["json"] = map[string]interface{}{
+		"success": true,
+	}
 	c.ServeJSON()
 }

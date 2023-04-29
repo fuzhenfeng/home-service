@@ -7,8 +7,8 @@ import (
 )
 
 type User struct {
-	id       int
-	userName string
+	Id       int    `json:"id"`
+	UserName string `json:"userName"`
 }
 
 func Set(user User) {
@@ -18,7 +18,7 @@ func Set(user User) {
 		return
 	}
 	mep := haxmap.New[int, string]()
-	mep.Set(user.id, string(jsonStr))
+	mep.Set(user.Id, string(jsonStr))
 }
 
 func Get(userId int) (user User) {

@@ -10,7 +10,7 @@ func init() {
 
 	beego.Router("/:userId([\\w]+)", &controllers.UserController{}, "get:Get")
 	beego.Router("/:userId([\\w]+)", &controllers.UserController{}, "put:Put")
-	beego.Router("/:userId([\\w]+)", &controllers.UserController{}, "post:Post")
+	beego.Router("/:userId([\\w]+)", &controllers.UserController{}, "post:Login")
 
 	beego.Router("/:userId([\\w]+)/album/:pictureId([\\w]+)", &controllers.AlbumController{}, "get:Get")
 	beego.Router("/:userId([\\w]+)/album/:pictureId([\\w]+)", &controllers.AlbumController{}, "put:Put")
